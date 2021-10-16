@@ -8,18 +8,14 @@ import { FormEvent, useState } from 'react'
 
 export function Home() {
 
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-
+    const [infoAuth, setInfoAuth] = useState({
+        'email': '',
+        'senha': ''
+    })
     async function handleLogin(event: FormEvent){
         event.preventDefault();
-
-        const InfoAuth = {
-            'email' : email,
-            'senha' : senha
-        }
-
-        console.log(InfoAuth)
+      
+        console.log(infoAuth)
     }
 
     return (
@@ -33,14 +29,21 @@ export function Home() {
                     <input 
                         type="email" 
                         placeholder="Email"
-                        onChange={event => setEmail(event.target.value)}
-                        value={email}
+                        onChange={event => {
+                            setInfoAuth(prevState =>{
+                                return {...prevState, 'email': event.target.value}
+                            })
+                        }}
+                        value={infoAuth.email}
                     />
                     <input 
                         type="password" 
                         placeholder="Senha" 
-                        onChange={event => setSenha(event.target.value)}
-                        value={senha}
+                        onChange={event => {
+                            setInfoAuth(prevState =>{
+                                return {...prevState, 'senha': event.target.value}
+                            })}}
+                        value={infoAuth.senha}
                     />
                     <Button className="button-login" type="submit">Login</Button>
                 </form>
