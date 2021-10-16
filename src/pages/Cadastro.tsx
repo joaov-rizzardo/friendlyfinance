@@ -6,31 +6,39 @@ import { MainAside } from '../components/MainAside'
 import { FormEvent, useState } from 'react'
 export function Cadastro() {
 
+    const [terms, setTerms] = useState(false)
     const [infoSign, setInfoSign] = useState({
         'nome': '',
         'sobrenome': '',
         'email': '',
         'senha': '',
         'senhaConfirma': '',
-        'dataNascimento': '',
-        'terms': false
+        'dataNascimento': ''
     })
 
     async function handleSignUp(event: FormEvent) {
         event.preventDefault();
 
-        console.log(infoSign)
-
+        let formInfoSign = Object.entries(infoSign)
+        const dataConfigs = new FormData();
+        formInfoSign.map(data => {
+            dataConfigs.append(data[0], data[1])
+        })
+        
         const configs = {
             header: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'POST',
-            body: JSON.stringify(infoSign)
+            body: dataConfigs
         }
 
-        fetch('http://localhost:8000/Controllers/AuthController.php', configs)
+        fetch('http://localhost:8000/cadastro', configs)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
     return (
@@ -110,16 +118,14 @@ export function Cadastro() {
                             type="checkbox"
                             name="checkTerms"
                             onChange={event => {
-                                setInfoSign(prevState => {
-                                    return { ...prevState, 'terms': event.target.checked }
-                                })
+                                setTerms(event.target.checked)
                             }}
 
                         />
                         <label htmlFor="checkTerms">Eu li e concordo com os <a href="#">termos de uso</a>  </label>
                     </div>
 
-                    <Button className="button-login" placeholder="Data de nascimento" type="submit">Login</Button>
+                    <Button className="button-login" placeholder="Data de nascimento" type="submit">Cadastrar</Button>
                 </form>
 
 
