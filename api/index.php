@@ -9,6 +9,7 @@ use Slim\Factory\AppFactory;
 
 header("Access-Control-Allow-Origin: *");
 
+
 $app = AppFactory::create();
 
 $app->post('/cadastro', function(Request $request, Response $response){
@@ -28,11 +29,15 @@ $app->post('/cadastro', function(Request $request, Response $response){
         'status' => false
     ];
     
+    for($i = 0; $i < 1000000000; $i++){
+        
+    }
     if($dbResponse == false){
-        $signUpStatus['status'] = false;
+        $user->signUp();
+        $signUpStatus['status'] = true;
         $response->getBody()->write(json_encode($signUpStatus));
     }else{
-        $signUpStatus['status'] = true;
+        $signUpStatus['status'] = false;
         $response->getBody()->write(json_encode($signUpStatus));
     }
 

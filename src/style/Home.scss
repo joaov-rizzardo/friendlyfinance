@@ -4,12 +4,14 @@ $main-color: #81BC44;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 #page-home{
     height: 100vh;
     display: flex;
     align-items: center;
+    height: 100vh;
 }
 
 aside{
@@ -43,7 +45,17 @@ main{
     flex: 10;
     display: flex;
     align-items: center;
+    overflow-y: auto;
 
+    #load{
+        display: none;
+    }
+
+    #form-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     h2{
         font-family: 'Yaldevi', sans-serif;
         font-size:16px;
@@ -131,6 +143,15 @@ main{
             width: 100%;
         }
 
+        .button-cadastro{
+            width: 100%;
+        }
+
+        p{
+            margin-top: 10px;
+            color: red;
+            display:none;
+        }
     }
 }
 

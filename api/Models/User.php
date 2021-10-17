@@ -27,6 +27,18 @@
 
             return $stmt->fetch(PDO::FETCH_OBJ);
         }
+
+        public function signUp(){
+            $query = "insert into tb_users(nome, sobrenome, email, senha, dataNascimento)
+                        values(:nome,:sobrenome,:email, :senha, :dataNascimento);";
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindValue(':nome', $this->__get('nome'));
+            $stmt->bindValue(':sobrenome', $this->__get('sobrenome'));
+            $stmt->bindValue(':email', $this->__get('email'));
+            $stmt->bindValue(':senha', $this->__get('senha'));
+            $stmt->bindValue(':dataNascimento', $this->__get('dataNascimento'));
+            $stmt->execute();
+        }
     }
 
 ?>
