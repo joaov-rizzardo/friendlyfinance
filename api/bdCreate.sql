@@ -4,6 +4,8 @@ create table tb_users(
     senha varchar(32) not null,
     nome varchar(50) not null,
     sobrenome varchar(100) not null,
-    dataNascimento date not null
+    dataNascimento date not null,
+    salario float,
+    diaSalario int
 );
 

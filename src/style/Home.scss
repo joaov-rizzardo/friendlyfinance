@@ -78,7 +78,10 @@ main{
 
     form{
         margin: 10px;
-        width: 400px;
+        width: 500px;
+        @media(max-width: 992px){
+            width: 400px;
+        }
         display: flex;
         flex-direction: column;
         align-items: center;

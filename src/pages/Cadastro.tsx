@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { MainAside } from '../components/MainAside'
 import { FormEvent, useState } from 'react'
 import { Load } from '../components/Load'
+import { UserInfo } from '../components/UserInfo'
+import ReactDOM from 'react-dom'
 
 export function Cadastro() {
     const [terms, setTerms] = useState(false)
@@ -72,7 +74,7 @@ export function Cadastro() {
                         erroMessage!.style.display = 'block'
                         console.log(erroMessage)
                     } else if (data.status === true) {
-                        document.getElementById('right-content')!.innerHTML = '<h1>Hello world! </h1>'
+                        ReactDOM.render(<UserInfo />, document.getElementById('right-content'))
                     }
 
                 })
@@ -83,12 +85,13 @@ export function Cadastro() {
 
     return (
         <div id="page-home">
-
+            
             <MainAside />
 
             <main id="right-content">
-                <Load message={'Aguarde, a sua conta está sendo criada...'} />
 
+                <Load message={'Aguarde, a sua conta está sendo criada...'} />
+                
                 <div id="form-content">
                     <img src={logo} alt="Logo frindly finance" />
                     <h2>Já possuí a sua conta? <Link to={'/'}>fazer login</Link></h2>
