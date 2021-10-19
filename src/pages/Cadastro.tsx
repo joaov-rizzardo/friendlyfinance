@@ -7,8 +7,10 @@ import { FormEvent, useState } from 'react'
 import { Load } from '../components/Load'
 import { UserInfo } from '../components/UserInfo'
 import ReactDOM from 'react-dom'
+import { useAuth } from '../hooks/useAuth'
 
 export function Cadastro() {
+    const {signIn} = useAuth()
     const [terms, setTerms] = useState(false)
     const [infoSign, setInfoSign] = useState({
         'nome': '',
@@ -74,13 +76,17 @@ export function Cadastro() {
                         erroMessage!.style.display = 'block'
                         console.log(erroMessage)
                     } else if (data.status === true) {
+                        const user = {
+                            id: '1',
+                            nome: 'João'
+                        }
+                        
+                        signIn(user)
                         ReactDOM.render(<UserInfo />, document.getElementById('right-content'))
                     }
 
                 })
         }
-
-
     }
 
     return (
@@ -183,3 +189,5 @@ export function Cadastro() {
 
     )
 }
+
+
