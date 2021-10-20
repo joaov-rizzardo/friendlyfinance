@@ -5,6 +5,8 @@
         private $nome;
         private $sobrenome;
         private $dataNascimento;
+        private $salario;
+        private $diaPagamento;
         private $connection;
 
         public function __construct(Db $db){
@@ -37,6 +39,15 @@
             $stmt->bindValue(':email', $this->__get('email'));
             $stmt->bindValue(':senha', $this->__get('senha'));
             $stmt->bindValue(':dataNascimento', $this->__get('dataNascimento'));
+            $stmt->execute();
+        }
+
+        public function setUserInfo(){
+            $query = "update tb_users set salario = :salario, diaSalario = :diaPagamento where id = :id";
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindValue(':salario', $this->__get('salario'));
+            $stmt->bindValue(':diaPagamento', $this->__get('diaPagamento'));
+            $stmt->bindValue(':id', $this->__get('id'));
             $stmt->execute();
         }
     }

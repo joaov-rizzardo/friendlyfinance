@@ -4,7 +4,12 @@ import { Button } from '../components/Button/index'
 import { Link } from 'react-router-dom'
 import { MainAside } from '../components/MainAside'
 import { FormEvent, useState } from 'react'
+import { useAuth } from '../hooks/useAuth'
 
+type LoginInfo = {
+    email : string;
+    senha : string;
+}
 
 export function Home() {
 
@@ -12,10 +17,41 @@ export function Home() {
         'email': '',
         'senha': ''
     })
+
+    const {signIn} = useAuth()
+
     async function handleLogin(event: FormEvent){
         event.preventDefault();
-      
-        console.log(infoAuth)
+        
+        let formInfoSignIn = Object.entries(infoAuth)
+            const dataConfigs = new FormData();
+            formInfoSignIn.map(data => {
+                dataConfigs.append(data[0], data[1])
+            })
+            const configs = {
+                header: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                method: 'POST',
+                body: dataConfigs
+            }
+
+        fetch('http://localhost:8000/login', configs)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            if(data.status == false){
+                const erroMessage = document.getElementById('erroMessage')
+                erroMessage!.innerHTML = 'Email e/ou senha inválidos'
+                erroMessage!.style.display = 'block'
+
+            }else if(data.status == true){
+                signIn(data.user)
+            }
+        })
+        
     }
 
     return (
@@ -46,6 +82,7 @@ export function Home() {
                         value={infoAuth.senha}
                     />
                     <Button className="button-login" type="submit">Login</Button>
+                    <p id="erroMessage"></p>
                 </form>
                 
                 
