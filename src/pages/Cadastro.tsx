@@ -1,4 +1,4 @@
-import '../style/Home.scss'
+import '../style/login-cadastro.scss'
 import logo from '../assets/images/logo.png'
 import { Button } from '../components/Button/index'
 import { Link, useHistory} from 'react-router-dom'
@@ -45,7 +45,7 @@ export function Cadastro() {
         else {
             let formInfoSign = Object.entries(infoSign)
             const dataConfigs = new FormData();
-            formInfoSign.map(data => {
+            formInfoSign.forEach(data => {
                 dataConfigs.append(data[0], data[1])
             })
 
@@ -169,7 +169,7 @@ export function Cadastro() {
                                 }}
 
                             />
-                            <label htmlFor="checkTerms">Eu li e concordo com os <a href="#">termos de uso</a>  </label>
+                            <label htmlFor="checkTerms">Eu li e concordo com os <a href="http://localhost:3000/">termos de uso</a>  </label>
                         </div>
 
                         <Button className="button-cadastro" placeholder="Data de nascimento" type="submit">Cadastrar</Button>

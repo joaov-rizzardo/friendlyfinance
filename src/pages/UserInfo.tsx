@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom"
 import { Button } from "../components/Button"
 import { MainAside } from "../components/MainAside"
 import { useAuth } from "../hooks/useAuth"
-import '../style/Home.scss'
+import '../style/login-cadastro.scss'
 
 export function UserInfo() {
     const history = useHistory()
@@ -18,7 +18,7 @@ export function UserInfo() {
         event.preventDefault()
         const formUserInfo = Object.entries(userInfo)
         const dataConfigs = new FormData()
-        formUserInfo.map(value => {
+        formUserInfo.forEach(value => {
             dataConfigs.append(value[0], value[1])
         })
 

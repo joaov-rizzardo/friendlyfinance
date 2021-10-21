@@ -1,0 +1,188 @@
+$main-color: #81BC44;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+#page-home{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+aside{
+    flex-direction: column;
+    flex: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: $main-color;
+
+    @media(max-width:992px){
+        display: none;
+    }
+    h1{
+        font-family: 'Yaldevi', sans-serif;
+        color: white;
+        font-size: 40px;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    img{
+        width: 500px;
+    }
+}
+
+main{
+    flex-direction: column;
+    flex: 10;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+
+    #load{
+        display: none;
+    }
+
+    #form-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2{
+        font-family: 'Yaldevi', sans-serif;
+        font-size:16px;
+        margin-bottom: 10px;
+
+        a{
+            color: $main-color;
+            filter: brightness(0.9);
+            text-decoration: none;
+
+            &:hover{
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+    img{
+        width: 400px;
+    }
+
+    form{
+        margin: 10px;
+        width: 500px;
+        @media(max-width: 992px){
+            width: 400px;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #div-date{
+            display: flex;
+            width: 100%;
+
+            label{
+                flex: 1;
+                font-size: 15px;
+                line-height: 40px;
+                
+            }
+            input{
+                flex: 2;
+                margin-right: 0px;
+                
+            }
+        }
+
+        #div-checkbox{
+            margin: 10px 0px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            
+            a{
+                color: $main-color;
+                filter: brightness(0.9);
+                text-decoration: none;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+
+            }
+            label{
+                line-height: 30px;
+            }
+            input[type=checkbox]{
+                height: 20px;
+                width: 20px;
+
+                &:checked{
+                    background: $main-color;
+                }
+            }
+        }
+        input{
+            display: block;
+            margin: 5px;
+            padding: 4px 8px;
+            border: 1px solid gray;
+            border-radius: 4px;
+            width: 100%;
+            height: 30px;
+        }
+
+        .button-login{
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .button-cadastro{
+            width: 100%;
+        }
+
+        p{
+            margin-top: 10px;
+            color: red;
+            display:none;
+        }
+    }
+
+    #userInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 500px;
+        @media(max-width: 992px){
+            width: 400px;
+        }
+        .checkIcon{
+            color: white;
+            background: #81BC44;
+            border-radius: 9999px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    
+        h2{
+            font-size: 22px;
+            text-align: center;
+        }
+        button{
+            width:100%;
+            margin-top: 10px;
+        }
+    }
+}
+
+
+
