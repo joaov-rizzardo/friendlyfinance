@@ -5,7 +5,7 @@ import { Cadastro } from './pages/Cadastro';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { UserInfo } from './pages/UserInfo';
-
+import './style/global.scss'
 function App() {
 
   return (

@@ -1,0 +1,101 @@
+$main-color: #81BC44;
+#page-content{
+    background: #ddd9cd;
+    width: 100vw;
+    nav{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        height: 100px;
+        margin: 0 30px;
+        padding-top: 10px;
+        
+        img{
+            width: 200px;
+        }
+    
+        button{
+            height: 40px;
+        }
+
+        >div{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            h4{
+                font-size: 16px
+            }
+            img{
+                width: 40px;
+            }
+        }
+    }
+
+    hr{
+        margin-top: 10px;
+
+    }
+
+    main{
+        margin-top: 30px;
+        #info{
+            display: flex;
+        }
+    
+        .valores{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px ridge $main-color;
+            width: 200px;
+            height: 200px;
+            border-radius: 9999px;
+
+            @media(max-width: 992px){
+                width: 150px;
+                height: 150px;
+            }
+    
+            h1{
+                color: $main-color;
+                filter: brightness(0.4);
+                margin: 0;
+
+                @media(max-width: 992px){
+                    font-size: 20px;
+                }
+            }
+
+            h4{
+                color: #808080;
+                @media(max-width: 992px){
+                    font-size: 14px;
+                }
+            }
+    
+            >div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+    
+        .valores-margin{
+            margin-top:80px;
+        }
+        
+        #dias-pagamento{
+            margin-top: 30px;
+            color: #211b15;
+        }
+
+        button{
+            margin-top: 15px;
+            padding: 15px;
+            width: 50vw;
+        }
+    }
+    
+}
