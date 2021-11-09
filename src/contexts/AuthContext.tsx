@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 
+//Type para as informações do usuário
 type User = {
   isAutenticated: boolean;
   id: string;
@@ -12,11 +13,14 @@ type User = {
   diaSalario: number | null;
 
 }
+
+//Type para o AuthContext
 type AuthContextType = {
   user?: User;
   signIn: (user: User) => void
 }
 
+//Type para o children do AuthContext
 type AuthContextProviderProps = {
   children: ReactNode
 }
@@ -24,6 +28,8 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
+
+  //estado que ira armazenar as informações referentes ao usuário
   const [user, setUser] = useState<User>();
 
   function signIn(userInfo: User) {
@@ -41,8 +47,9 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       diaSalario: diaSalario
 
     })
-
-    sessionStorage.setItem('user', id)
+    
+    //seta os dados do usuário em localStorage
+    sessionStorage.setItem('user', JSON.stringify(user))
 
   }
 

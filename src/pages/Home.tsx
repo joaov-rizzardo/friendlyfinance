@@ -17,7 +17,7 @@ export function Home() {
             </nav>
             <hr />
             <main>
-                <div id="info">
+                <section id="info">
                     <div className="valores valores-margin">
                         <div>
                             <h1>R$ 867,00</h1>
@@ -38,10 +38,33 @@ export function Home() {
                             <h4>Restante do salário</h4>
                         </div>
                     </div>
-                </div>
+                </section>
                 <h1 id="dias-pagamento">Faltam 22 dias para o pagamento</h1>
                 <Button>Receber pagamento</Button>
+                
+                <section id="gastos">
+                    <label htmlFor="alimentacao">Alimentação</label>
+                    <progress id="alimentação" value="30" max="100">Teste</progress>
 
+                    <label htmlFor="contas">Contas residenciais</label>
+                    <progress id="contas" value="30" max="100">Teste</progress>
+
+                    <label htmlFor="aluguel">Aluguel</label>
+                    <progress id="aluguel" value="30" max="100">Teste</progress>
+
+                    <label htmlFor="limpeza">Limpeza</label>
+                    <progress id="limpeza" value="30" max="100">Teste</progress>
+
+                    <label htmlFor="lazer">Lazer</label>
+                    <progress id="lazer" value="30" max="100">Teste</progress>
+
+                    <label htmlFor="saude">Saúde e remédios</label>
+                    <progress id="saude" value="30" max="100">Teste</progress>
+
+                    <label htmlFor="saude">Outros</label>
+                    <progress id="saude" value="30" max="100">Teste</progress>
+                </section>
+        
             </main>
         </div>
     )

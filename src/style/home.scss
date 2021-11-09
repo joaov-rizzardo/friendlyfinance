@@ -1,4 +1,7 @@
 $main-color: #81BC44;
+*{
+    font-family: 'Yaldevi', sans-serif;
+}
 #page-content{
     background: #ddd9cd;
     width: 100vw;
@@ -96,6 +99,18 @@ $main-color: #81BC44;
             padding: 15px;
             width: 50vw;
         }
+
+        #gastos{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+
+            progress{
+                width: 100%;
+            }
+        }
     }
+    
     
 }

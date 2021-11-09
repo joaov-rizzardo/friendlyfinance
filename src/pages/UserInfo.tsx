@@ -9,20 +9,32 @@ import '../style/login-cadastro.scss'
 
 export function UserInfo() {
     const history = useHistory()
+
+    //recupera a variavel user do hook useAuth
     const {user} = useAuth()
+
+    //estado utilizado para armazenar as informações do usuário
     const [userInfo, setUserInfo] = useState({
         salario: '',
         diaPagamento: ''
     })
+
     async function handleSetUserInfo(event: FormEvent) {
         event.preventDefault()
+        //converte o objeto de informações do usuário em um array
         const formUserInfo = Object.entries(userInfo)
+
+        //instancia um objeto do tipo FormData
         const dataConfigs = new FormData()
+
+        //percorre o array e preenche dataConfigs com suas informações
         formUserInfo.forEach(value => {
             dataConfigs.append(value[0], value[1])
         })
 
+        //adiciona em dataConfigs o id do respectivo usuário, que é recuperado por meio do useAuth, do AuthContext
         dataConfigs.append('id', user!.id)
+
         const configs = {
             header: {
                 'Accept': 'application/json',
@@ -37,7 +49,7 @@ export function UserInfo() {
             return response.json()
         })
         .then(status => {
-            console.log(status)
+            alert(status)
         })
 
     }
