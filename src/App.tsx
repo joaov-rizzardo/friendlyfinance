@@ -9,7 +9,6 @@ import './style/global.scss'
 function App() {
 
   return (
-
     <AuthContextProvider>
       <BrowserRouter>
         <Switch>

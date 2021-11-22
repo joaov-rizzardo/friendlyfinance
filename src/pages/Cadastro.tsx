@@ -33,7 +33,7 @@ export function Cadastro() {
             erroMessage!.innerHTML = 'Você precisa aceitar os termos para se cadastrar.'
             erroMessage!.style.display = 'block'
         }
-
+                        
         //testa se todos os campos foram preenchidos
         else if (infoSign.nome === '' || infoSign.sobrenome === '' || infoSign.email === '' || infoSign.senha === '' || infoSign.senhaConfirma === '' || infoSign.dataNascimento === '') {
             erroMessage!.innerHTML = 'Todos os campos precisam ser preenchidos.'

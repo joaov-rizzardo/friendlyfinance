@@ -82,6 +82,11 @@ $app->post('/login', function(Request $request, Response $response){
     $user->__set('email', $data['email']);
 
     $dbResponse = $user->findUser();
+    /*
+    for($i = 0; $i < 1000000000; $i++){
+        
+    }
+    */
 
     if ($dbResponse == false || $dbResponse->senha != md5($data['senha'])){
         $request['status'] = false;

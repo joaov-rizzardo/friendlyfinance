@@ -3,8 +3,8 @@ $main-color: #81BC44;
     font-family: 'Yaldevi', sans-serif;
 }
 #page-content{
-    background: #ddd9cd;
     width: 100vw;
+    max-width: 100%;
     nav{
         display: flex;
         justify-content:space-between;
@@ -15,6 +15,10 @@ $main-color: #81BC44;
         
         img{
             width: 200px;
+
+            @media(max-width: 992px){
+                width: 150px;
+            }
         }
     
         button{
@@ -41,7 +45,14 @@ $main-color: #81BC44;
     }
 
     main{
-        margin-top: 30px;
+
+        h1{
+            text-align: center;
+            color: $main-color;
+            filter: brightness(0.9);
+            padding: 20px;
+        }
+
         #info{
             display: flex;
         }
@@ -94,22 +105,45 @@ $main-color: #81BC44;
             color: #211b15;
         }
 
-        button{
+        #btn-pag{
+            font-weight: 700;
+            font-size: 20px;
             margin-top: 15px;
             padding: 15px;
             width: 50vw;
         }
+    
+        #despesas{
+            table{
+                margin-top: 10px;
+                width: 95vw;
+                text-align: center;
+                
+                .table-descricao{
+                    @media(max-width: 992px){
+                        display: none;
+                    }
+                }
+               
+                td.table-buttons{
+                    width: 15%;
 
-        #gastos{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
+                    @media(max-width:992px){
+                        width:20%
+                    }
 
-            progress{
-                width: 100%;
+                    @media(max-width:768px){
+                        width:30%;
+                    }
+                    button{
+                        width: 40px;
+                        margin: 0px 5px ;
+                    }
+                }
+                
             }
         }
+       
     }
     
     

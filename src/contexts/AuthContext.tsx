@@ -32,9 +32,9 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
   //estado que ira armazenar as informações referentes ao usuário
   const [user, setUser] = useState<User>();
 
-  function signIn(userInfo: User) {
+  async function signIn(userInfo: User) {
     const { id, nome, sobrenome, email, senha, dataNascimento, salario, diaSalario } = userInfo
-
+    
     setUser({
       isAutenticated: true,
       id: id,
@@ -45,12 +45,10 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       dataNascimento: dataNascimento,
       salario: salario,
       diaSalario: diaSalario
-
     })
-    
+  
     //seta os dados do usuário em localStorage
     sessionStorage.setItem('user', JSON.stringify(user))
-
   }
 
   return (

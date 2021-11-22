@@ -1,22 +1,21 @@
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../assets/images/logo.png';
-import userImg from '../assets/images/userImage.png'
 import { Button } from '../components/Button';
 import '../style/home.scss'
 export function Home() {
     return (
         <div id="page-content">
             <nav>
-                <button><FontAwesomeIcon icon={faBars} /></button>
                 <img src={logo} alt="Frindly Finance" />
-                <div>
-                    <img src={userImg} alt="Imagem do usuário" />
-                    <h4>Usuario</h4>
-                </div>
+                <button><FontAwesomeIcon icon={faBars} /></button>
             </nav>
+
             <hr />
+
             <main>
+                
+                <h1>Visão geral</h1>
                 <section id="info">
                     <div className="valores valores-margin">
                         <div>
@@ -40,31 +39,55 @@ export function Home() {
                     </div>
                 </section>
                 <h1 id="dias-pagamento">Faltam 22 dias para o pagamento</h1>
-                <Button>Receber pagamento</Button>
+                <Button id="btn-pag">Receber pagamento</Button>
+                <h1>Despesas</h1>
                 
-                <section id="gastos">
-                    <label htmlFor="alimentacao">Alimentação</label>
-                    <progress id="alimentação" value="30" max="100">Teste</progress>
+                <section id="despesas">
+                    <table>
+                        <thead>
+                            <th>Titulo</th>
+                            <th className="table-descricao">Descrição</th>
+                            <th>Parcela</th>
+                            <th>Valor</th>
+                        </thead>
 
-                    <label htmlFor="contas">Contas residenciais</label>
-                    <progress id="contas" value="30" max="100">Teste</progress>
+                        <tbody>
+                            <tr>
+                                <td>Carro</td>
+                                <td className="table-descricao">Carro comprado</td>
+                                <td>05/24</td>
+                                <td>R$ 550,00</td>
+                                <td className="table-buttons">
+                                    <button><FontAwesomeIcon icon={faEye} /></button>
+                                    <button><FontAwesomeIcon icon={faTrash} /></button>
+                                </td>
+                            </tr>
 
-                    <label htmlFor="aluguel">Aluguel</label>
-                    <progress id="aluguel" value="30" max="100">Teste</progress>
+                            <tr>
+                                <td>Carro</td>
+                                <td className="table-descricao">Carro comprado</td>
+                                <td>05/24</td>
+                                <td>R$ 550,00</td>
+                                <td className="table-buttons">
+                                    <button><FontAwesomeIcon icon={faEye} /></button>
+                                    <button><FontAwesomeIcon icon={faTrash} /></button>
+                                </td>
+                            </tr>
 
-                    <label htmlFor="limpeza">Limpeza</label>
-                    <progress id="limpeza" value="30" max="100">Teste</progress>
-
-                    <label htmlFor="lazer">Lazer</label>
-                    <progress id="lazer" value="30" max="100">Teste</progress>
-
-                    <label htmlFor="saude">Saúde e remédios</label>
-                    <progress id="saude" value="30" max="100">Teste</progress>
-
-                    <label htmlFor="saude">Outros</label>
-                    <progress id="saude" value="30" max="100">Teste</progress>
+                            <tr>
+                                <td>Carro</td>
+                                <td className="table-descricao">Carro comprado</td>
+                                <td>05/24</td>
+                                <td>R$ 550,00</td>
+                                <td className="table-buttons">
+                                    <button><FontAwesomeIcon icon={faEye} /></button>
+                                    <button><FontAwesomeIcon icon={faTrash} /></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
-        
+                
             </main>
         </div>
     )
